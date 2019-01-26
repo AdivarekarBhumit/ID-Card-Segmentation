@@ -22,3 +22,25 @@ Segmentation of ID Cards using U-Net
   <h4>Val Binary Loss</h4>
 <img src="https://github.com/AdivarekarBhumit/ID-Card-Segmentation/blob/master/images/val_binary_accuracy.svg" width="45%" height="50%" alt="Val.Binary Accuracy">
 </span>
+
+
+### Citation
+Please cite this paper, if using midv dataset, link for dataset provided in paper
+
+    @article{DBLP:journals/corr/abs-1807-05786,
+      author    = {Vladimir V. Arlazarov and
+                   Konstantin Bulatov and
+                   Timofey S. Chernov and
+                   Vladimir L. Arlazarov},
+      title     = {{MIDV-500:} {A} Dataset for Identity Documents Analysis and Recognition
+                   on Mobile Devices in Video Stream},
+      journal   = {CoRR},
+      volume    = {abs/1807.05786},
+      year      = {2018},
+      url       = {http://arxiv.org/abs/1807.05786},
+      archivePrefix = {arXiv},
+      eprint    = {1807.05786},
+      timestamp = {Mon, 13 Aug 2018 16:46:35 +0200},
+      biburl    = {https://dblp.org/rec/bib/journals/corr/abs-1807-05786},
+      bibsource = {dblp computer science bibliography, https://dblp.org}
+    }
