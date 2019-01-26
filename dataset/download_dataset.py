@@ -81,41 +81,41 @@ def main():
     i = 1
 
     for link in all_links:
-    print('----------------------------------------------------------------------')
-    print('\nDownloading:', link[40:])
-    os.system('wget ' + link)
-    print('Downloaded:', link[40:])
-    print('Unzipping:', link[40:])
-    os.system('unzip ' + link[40:])
-    print('Unzipped:', link[40:].replace('.zip', ''))
+        print('----------------------------------------------------------------------')
+        print('\nDownloading:', link[40:])
+        os.system('wget ' + link)
+        print('Downloaded:', link[40:])
+        print('Unzipping:', link[40:])
+        os.system('unzip ' + link[40:])
+        print('Unzipped:', link[40:].replace('.zip', ''))
 
-    imgdir_path = './' + link[40:].replace('.zip', '') + '/images/'
-    crddir_path = './' + link[40:].replace('.zip', '') + '/ground_truth/'
-    # time.sleep(5)
-    X = []
-    Y = []
-    os.remove(imgdir_path + link[40:].replace('.zip', '.tif'))
-    os.remove(crddir_path + link[40:].replace('.zip', '.json'))
-    for images, ground_truth in zip(sorted(os.listdir(imgdir_path)), sorted(os.listdir(crddir_path))):
-        img_list = sorted(glob(imgdir_path + images + '/*.tif'))
-        label_list = sorted(glob(crddir_path + ground_truth + '/*.json'))
-        for img, label in zip(img_list, label_list):
-            image, mask = read_image(img, label)
-            X.append(image)
-            Y.append(mask)
+        imgdir_path = './' + link[40:].replace('.zip', '') + '/images/'
+        crddir_path = './' + link[40:].replace('.zip', '') + '/ground_truth/'
+        # time.sleep(5)
+        X = []
+        Y = []
+        os.remove(imgdir_path + link[40:].replace('.zip', '.tif'))
+        os.remove(crddir_path + link[40:].replace('.zip', '.json'))
+        for images, ground_truth in zip(sorted(os.listdir(imgdir_path)), sorted(os.listdir(crddir_path))):
+            img_list = sorted(glob(imgdir_path + images + '/*.tif'))
+            label_list = sorted(glob(crddir_path + ground_truth + '/*.json'))
+            for img, label in zip(img_list, label_list):
+                image, mask = read_image(img, label)
+                X.append(image)
+                Y.append(mask)
 
-    X = np.array(X)
-    Y = np.array(Y)
-    Y = np.expand_dims(Y, axis=3)
-    print(link[40:].replace('.zip', ''), X.shape, Y.shape)
-    # print(X.shape, Y.shape)
-    np.save('train_image' + str(i) + '.npy', X)
-    np.save('mask_image' + str(i) + '.npy', Y)
-    print('Files Saved For:', link[40:].replace('.zip', ''))
-    i += 1
-    print('----------------------------------------------------------------------')
-    os.remove(link[40:])
-    shutil.rmtree(link[40:].replace('.zip', ''))
+        X = np.array(X)
+        Y = np.array(Y)
+        Y = np.expand_dims(Y, axis=3)
+        print(link[40:].replace('.zip', ''), X.shape, Y.shape)
+        # print(X.shape, Y.shape)
+        np.save('train_image' + str(i) + '.npy', X)
+        np.save('mask_image' + str(i) + '.npy', Y)
+        print('Files Saved For:', link[40:].replace('.zip', ''))
+        i += 1
+        print('----------------------------------------------------------------------')
+        os.remove(link[40:])
+        shutil.rmtree(link[40:].replace('.zip', ''))
 
 if __name__ == '__main__':
     main()
