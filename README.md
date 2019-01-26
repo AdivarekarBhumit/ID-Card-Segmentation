@@ -8,6 +8,34 @@ Segmentation of ID Cards using U-Net
 ![Test_Image](https://github.com/AdivarekarBhumit/ID-Card-Segmentation/blob/master/images/test.jpg)
 ![Output_Image](https://github.com/AdivarekarBhumit/ID-Card-Segmentation/blob/master/images/output.jpg)
 
+### Requirements
+- Tensorflow-GPU 1.12
+- Keras 2.1
+- OpenCV 3.4.5
+- Numpy 1.16
+
+### Dataset
+- Download Dataset
+```
+python dataset/download_dataset.py
+```
+- Combine To single npy file (First Download the dataset)
+```
+python dataset/stack_npy.py
+```
+
+### Train Model
+- Start Training
+```
+python model/train.py
+```
+Training data in 100 epochs. This data was trained on google colab
+
+### Test Model
+```
+python test_model.py
+```
+
 ### Benchmarks
 <span>
   <h4>IoU Loss</h4>
