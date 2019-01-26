@@ -14,7 +14,7 @@ img = cv2.resize(img, (256,256))
 img = img / 255.0
 predict = model.predict(img.reshape(1,256,256,3))
 
-output = predict[0].astype(np.int32)
+output = predict[0]
 
 cv2.imshow('Output', output)
 cv2.waitKey(0)
