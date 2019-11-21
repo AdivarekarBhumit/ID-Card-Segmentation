@@ -7,7 +7,7 @@ from keras.optimizers import Adam
 from keras.losses import binary_crossentropy
 import keras
 from keras.callbacks import TensorBoard, ModelCheckpoint
-from .iou_loss import IoU
+from iou_loss import IoU
 
 def get_model():
     K.clear_session()
