@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 model = load_model('unet_model_whole_100epochs.h5', compile=False)
 model.compile(optimizer=Adam(1e-4), loss=IoU, metrics=['binary_accuracy'])
 
-image_name = './images/output.jpg'
+image_name = './images/test.jpg'
 
 img = cv2.imread(image_name)
 h,w = img.shape[:2]
